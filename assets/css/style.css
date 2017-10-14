@@ -1,0 +1,15 @@
+body {
+margin:50px;
+border:20px;
+padding:20px;
+}
+
+h1 {
+	font-family: Georgia;
+	color: #bc6916;
+}
+
+p {
+	font-family: Georgia;
+	color: black;
+}
