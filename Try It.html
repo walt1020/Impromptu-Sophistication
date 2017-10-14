@@ -3,8 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Try It</title>
-<!--linked bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">	
+<!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
 <!--linked my style.css sheet -->	 
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -12,52 +13,71 @@
 
 
 <body>
- <div class="media">
- <img src=".\assets\images\stoutChefLogo.gif" atl= "StoutChef" class="image">  
- <div class="media-body">
 
-<h1 class="mt-0"><strong>Try It!</strong></h1>
+	<div class="container">
+		<div class=row>
+			<div class="col-lg-8">
+				<img src=".\assets\images\logosmall.jpg" atl= "logosmall" class="image"> 
+			</div>
+			<div class="col-lg-4">
+				<ul class="nav">
+				  <li class="nav-item">
+				    <a class="nav-link active" href="welcome.index.html">Home</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="How it works.html">How It Works</a>
+				  </li>
+				</ul>
+			</div>
+		</div>
+		<div class=row>
+			<div class="col-lg-12">
+				<h1 class="mt-0"><strong>Try It!</strong></h1>
+			</div>
+		</div>
+		<div class=row>
+			<div class="col-lg-6">
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <h3 class="panel-title">Enter your ingredients....</h3>
+		          </div>
+		          <div class="panel-body">
+		 			<!-- User inputs for ingredients-->
+			        <form role="form">
+			           	<div class="form-group">
+			                <label for="ingredient1-input">Ingredient #1</label>
+			                <input class="form-control" id="ingredient1-input" type="text">
+			            </div>
+			            <div class="form-group">
+			            		<label for="ingredient2-input">Ingredient #2:</label>
+			                	<input class="form-control" id="ingredient2-input" type="text">
+			            </div>
+			            <div class="form-group">
+		                	<label for="ingredient3-input-input">Imgredient #3:</label>
+		                	<input class="form-control" id="ingredient3-input" type="text">
+			            </div>
+			            <button class="btn btn-default" id="add-user" type="submit">Add</button>
+			       		<button class="btn btn-default" id="add-user" type="submit">Submit</button>
+			        </form>
+		          </div>
+		        </div>
+		    </div>
 
-<br>
-<!-- Div containing the box for user input -->
-<div id="wrapper">
-	<div class="col-lg-6">
-	    <div class="input-group">
-	      <input id="userInput" type="text" class="form-control" placeholder="Enter your ingredients..." aria-label="Enter your ingredients...">
-	      <span class="input-group-btn">
-	        <button id="submit" class="btn btn-secondary" type="button">Submit</button>
-	      </span>
-	    </div>
-	</div>	
-</div>
-<!-- Div containing the area for the output-->    
- <div class ="container-fluid">
- <br>
-<strong><p>Your Results</p></strong>
-<div id ="user results"></div>
-</div>
 
-</div>
-
-<!--Nav Bar -->
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="index.html">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="How it works.html">How It Works</a>
-  </li>
-</ul>
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script type="text/javascript" src="assets/app.js"></script>
-
-
-
-
-
-
+		      <!-- Ingredient output -->
+		    <div class="col-lg-6">
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <h3 class="panel-title">Your Ingredients</h3>
+		          </div>
+		          <div class="panel-body" id="your-ingredients">
+		            <h2 id="ingredient-display">Ingredient #1</h2>
+		            <h4 id="ingredient-display">Ingredient #2</h4>
+		            <h4 id="ingredient-display">Ingredient #3</h4>
+		           </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
 </body>
 </html>
