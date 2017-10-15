@@ -43,8 +43,8 @@ function getRecipesFromIngredients(){
 			console.log(transformedResponse);
 			//var count = transformedResponse.count > 2? 2: count;
 			var count = 0;
-			if(transformedResponse.count>1){
-				count = 1;
+			if(transformedResponse.count>5){
+				count = 5;
 			}
 			else{
 				count = transformedResponse.count;
@@ -91,15 +91,41 @@ function getRecipesFromIngredients(){
 
 	}
 }
+
+
+function getBeersFromIngredient(beerIngredient) {
+	// ingredient = ingredientsArray[Math.floor(Math.random() * 3)];
+	// console.log(ingredient);
+
+	var beerQueryURL = "https://api.punkapi.com/v2/beers?food=" + beerIngredient + "&per_page=5";
+
+	$.ajax({
+			url: beerQueryURL,
+			method: "GET"
+		}).done(function(beerResponse) {
+			// console.log(getResponse);
+			console.log(beerResponse);
+			// console.log(transformedGETResponse.recipes[0].recipe_id);
+			// recipeID = transformedGETResponse.recipes[0].recipe_id;
+			// console.log(JSON.parse(response));
+			// console.log(response);
+		})
+
+}
+
+
 $("#add").on("click",function(){
-	var ingredients = $("#userInput").val().trim();
+	event.preventDefault();
+	var ingredients = $("#ingredient1-input").val().trim();
 	addIngredients(ingredients);
 	$("#userInput").val("");
 });
 
 $("#submit").on("click", function() {
 		event.preventDefault();
-		getRecipesFromIngredients();		
+		getRecipesFromIngredients();
+		var foodForBeer = ingredientsArray[0];
+		getBeersFromIngredient(foodForBeer);		
 })
 
 		   	
@@ -114,4 +140,4 @@ $("#submit").on("click", function() {
 
 
 
-var punkAPI = "https://api.punkapi.com/v2/beers?food"
+
