@@ -66,6 +66,8 @@ function getRecipesFromIngredients(){
 					console.log(transformedResponse.recipes[i].recipe_id);
 					var recipeID = transformedResponse.recipes[i].recipe_id;
 					getRecipe(recipeID);
+
+					
 				}
 			}
 			
@@ -84,10 +86,30 @@ function getRecipesFromIngredients(){
 			// recipeID = transformedGETResponse.recipes[0].recipe_id;
 			// console.log(JSON.parse(response));
 			// console.log(response);
+			var recipeImage = $("<img>");
+			// var recipeMakings = $("<li>");
+			recipeImage.attr("src", transformedGETResponse.recipe.image_url);
+			recipeImage.addClass("recipeImage");
+			recipeImage.height(300);
+			recipeImage.width(300);
+			// for(var i=0; i<transformedGETResponse.recipe.ingredients.length; i++){
+			// 	recipeMakings.text(transformedGETResponse.recipe.ingredients[i]);
+			// }
+			$("#your-ingredients").append(recipeImage);
+			// $("#your-ingredients").html(recipeMakings);
+
 		})
+
+		
 
 	}
 }
+
+// function addRecipeToScreen() {
+// 	var recipeImage = $("<img>");
+// 	recipeImage.attr("src", transformedGETResponse.recipe.image_url);
+// 	$("#your-ingredients").append(recipeImage);
+// }
 
 
 function getBeersFromIngredient(beerIngredient) {
@@ -112,8 +134,13 @@ function getBeersFromIngredient(beerIngredient) {
 // on click event for the "add" button, user needs to click add before he/she can submit
 $("#add").on("click",function(){
 	event.preventDefault();
+	var ingredientList = $("<li>");
 	var ingredients = $("#ingredient1-input").val().trim();
 	addIngredients(ingredients);
+	for(var i=0; i<ingredientsArray.length; i++){
+			ingredientList.text(ingredientsArray[i]);
+		}
+	$("#your-ingredients").append(ingredientList);
 	$("#ingredient1-input").val("");
 });
 
