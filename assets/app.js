@@ -87,15 +87,26 @@ function getRecipesFromIngredients(){
 			// console.log(JSON.parse(response));
 			// console.log(response);
 			var recipeImage = $("<img>");
+			var recipeURL = $("<a>");
+			
+			recipeURL.attr("href", transformedGETResponse.recipe.source_url);
+			recipeURL.attr("target", "_blank");
+
+		
+			
 			// var recipeMakings = $("<li>");
 			recipeImage.attr("src", transformedGETResponse.recipe.image_url);
 			recipeImage.addClass("recipeImage");
+			recipeURL.append(recipeImage);
+			// recipeImage.wrap("<a href=" + transformedGETResponse.recipe.source_url + "/a>");
 			recipeImage.height(300);
 			recipeImage.width(300);
 			// for(var i=0; i<transformedGETResponse.recipe.ingredients.length; i++){
 			// 	recipeMakings.text(transformedGETResponse.recipe.ingredients[i]);
 			// }
-			$("#your-ingredients").append(recipeImage);
+
+			$("#your-results").append(recipeURL);
+
 			// $("#your-ingredients").html(recipeMakings);
 
 		})
