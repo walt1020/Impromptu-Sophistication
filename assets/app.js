@@ -135,7 +135,36 @@ function getBeersFromIngredient(beerIngredient) {
 			method: "GET"
 		}).done(function(beerResponse) {
 			// console.log(getResponse);
+			var beerPairingName = $("<p>");
+			var beerPairingDescription = $("<p>");
+			var brewery = $("<p>");
+			var beerPairingABV = $("<p>");
+			var beerPairingTagline = $("<p>");
+			var beerImage = $("<img>");
+
+			beerImage.attr("src", beerResponse[0].image_url);
+			beerImage.height(100);
+			beerImage.width(100);
+			
+
+
+			brewery.text("Brewery: Brewdog")
+			beerPairingName.text("Name: " + beerResponse[0].name);
+			beerPairingTagline.text("Tagline: " + beerResponse[0].tagline);
+			beerPairingDescription.text("Description: " + beerResponse[0].description);
+			beerPairingABV.text("ABV: " + beerResponse[0].abv);
+
+			$("#your-results").append(brewery);
+			$("#your-results").append(beerPairingName);
+			$("#your-results").append(beerPairingTagline);
+			$("#your-results").append(beerPairingDescription);
+			$("#your-results").append(beerPairingABV);
+			$("#your-results").append(beerImage);
+			$("#your-results").append("<br>");
+
+
 			console.log(beerResponse);
+
 			// console.log(transformedGETResponse.recipes[0].recipe_id);
 			// recipeID = transformedGETResponse.recipes[0].recipe_id;
 			// console.log(JSON.parse(response));
