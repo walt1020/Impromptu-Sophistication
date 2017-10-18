@@ -154,13 +154,13 @@ function getBeersFromIngredient(beerIngredient) {
 			beerPairingDescription.text("Description: " + beerResponse[0].description);
 			beerPairingABV.text("ABV: " + beerResponse[0].abv);
 
-			$("#your-results").append(brewery);
-			$("#your-results").append(beerPairingName);
-			$("#your-results").append(beerPairingTagline);
-			$("#your-results").append(beerPairingDescription);
-			$("#your-results").append(beerPairingABV);
-			$("#your-results").append(beerImage);
-			$("#your-results").append("<br>");
+			$("#your-pairing").append(brewery);
+			$("#your-pairing").append(beerPairingName);
+			$("#your-pairing").append(beerPairingTagline);
+			$("#your-pairing").append(beerPairingDescription);
+			$("#your-pairing").append(beerPairingABV);
+			$("#your-pairing").append(beerImage);
+			$("#your-pairing").append("<br>");
 
 
 			console.log(beerResponse);
