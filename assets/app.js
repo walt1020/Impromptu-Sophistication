@@ -144,7 +144,7 @@ function getBeersFromIngredient(beerIngredient) {
 
 			beerImage.attr("src", beerResponse[0].image_url);
 			beerImage.height(100);
-			beerImage.width(100);
+			// beerImage.width(100);
 			
 
 
@@ -170,6 +170,21 @@ function getBeersFromIngredient(beerIngredient) {
 			// console.log(JSON.parse(response));
 			// console.log(response);
 		})
+
+}
+
+$("#clear").on("click",function() {
+	clearIngredients();
+})
+
+function clearIngredients() {
+	$("#your-pairing").empty();
+	$("#your-ingredients").empty();
+	$("#your-results").empty();
+
+	ingredientsArray = [];
+
+	console.log(ingredientsArray);
 
 }
 
@@ -199,5 +214,7 @@ $("#submit").on("click", function() {
 		
 		getBeersFromIngredient(foodForBeer);		
 })
+
+
 
 
