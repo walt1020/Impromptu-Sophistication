@@ -17,6 +17,8 @@ function addIngredients(ingredient){
 	ingredientsArray.push(ingredient);
 	console.log(ingredient)
 	console.log(ingredientsArray);
+
+
 }
 function getRecipesFromIngredients(){
 	
@@ -145,13 +147,15 @@ function getBeersFromIngredient(beerIngredient) {
 // on click event for the "add" button, user needs to click add before he/she can submit
 $("#add").on("click",function(){
 	event.preventDefault();
-	var ingredientList = $("<li>");
-	var ingredients = $("#ingredient1-input").val().trim();
-	addIngredients(ingredients);
-	for(var i=0; i<ingredientsArray.length; i++){
-			ingredientList.text(ingredientsArray[i]);
-		}
-	$("#your-ingredients").append(ingredientList);
+	
+	var tempIngredientArray = $("#ingredient1-input").val().trim().split(",");
+	for(var i=0;i<tempIngredientArray.length;i++){
+		addIngredients(tempIngredientArray[i]);
+		var ingredientList = $("<li>");
+		ingredientList.text(tempIngredientArray[i]);
+		$("#your-ingredients").append(ingredientList);
+	}
+	
 	$("#ingredient1-input").val("");
 });
 
