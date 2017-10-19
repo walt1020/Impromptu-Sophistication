@@ -101,8 +101,8 @@ function getRecipesFromIngredients(){
 			recipeImage.addClass("recipeImage");
 			recipeURL.append(recipeImage);
 			// recipeImage.wrap("<a href=" + transformedGETResponse.recipe.source_url + "/a>");
-			recipeImage.height(300);
-			recipeImage.width(300);
+			
+			
 			// for(var i=0; i<transformedGETResponse.recipe.ingredients.length; i++){
 			// 	recipeMakings.text(transformedGETResponse.recipe.ingredients[i]);
 			// }
@@ -151,7 +151,7 @@ function getBeersFromIngredient(beerIngredient) {
 			brewery.text("Brewery: Brewdog")
 			beerPairingName.text("Name: " + beerResponse[0].name);
 			beerPairingTagline.text("Tagline: " + beerResponse[0].tagline);
-			beerPairingDescription.text("Description: " + beerResponse[0].description);
+			beerPairingDescription.text("Description: "  + beerResponse[0].description);
 			beerPairingABV.text("ABV: " + beerResponse[0].abv);
 
 			$("#your-pairing").append(brewery);
@@ -178,9 +178,9 @@ $("#clear").on("click",function() {
 })
 
 function clearIngredients() {
-	$("#your-pairing").empty();
+	// $("#your-pairing").empty();
 	$("#your-ingredients").empty();
-	$("#your-results").empty();
+	// $("#your-results").empty();
 
 	ingredientsArray = [];
 
@@ -206,7 +206,11 @@ $("#add").on("click",function(){
 // on click even for teh submit button that runs all the Ajax calls and returns all the recipe ID's, recipes, and beer pairings
 $("#submit").on("click", function() {
 		event.preventDefault();
+		$("#your-results").empty();
+		$("#your-pairing").empty();
+
 		getRecipesFromIngredients();
+
 
 		// Setting a variable to equal just one of the ingredients in the array that is made of the values given to it from the "add" button
 		var foodForBeer = ingredientsArray[Math.floor(Math.random() * ingredientsArray.length)];

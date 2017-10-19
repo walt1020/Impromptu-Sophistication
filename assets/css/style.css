@@ -15,3 +15,17 @@ p {
 	font-family: Georgia;
 	color: black;
 }
+
+.recipeImage {
+	border-radius: 10px;
+	width: 300px;
+	margin: 10px;
+}
+
+#your-results {
+	text-align: center;
+}
+
+#your-pairing {
+	text-align: center;
+}
